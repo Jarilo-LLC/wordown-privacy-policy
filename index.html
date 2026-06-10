@@ -122,10 +122,6 @@
       margin-top: 1.5rem;
     }
 
-    .app-card.image-right {
-      flex-direction: row-reverse;
-    }
-
     .app-card img {
       width: 90px;
       height: 90px;
@@ -204,8 +200,7 @@
     }
 
     @media (max-width: 520px) {
-      .app-card,
-      .app-card.image-right {
+      .app-card {
         flex-direction: column;
         gap: 1.25rem;
       }
@@ -247,7 +242,7 @@
       </div>
     </div>
 
-    <div class="app-card image-right">
+    <div class="app-card">
       <img src="ourplace.png" alt="Our Place app icon" />
       <div class="app-info">
         <h2>Our Place</h2>
