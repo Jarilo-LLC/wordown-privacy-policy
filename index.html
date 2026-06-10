@@ -104,6 +104,10 @@
       margin-bottom: 1.25rem;
     }
 
+    .app-card + .apps-heading {
+      margin-top: 3rem;
+    }
+
     .app-card {
       border: 1.5px solid #1a1a1a;
       border-radius: 4px;
@@ -112,6 +116,14 @@
       gap: 2rem;
       align-items: flex-start;
       max-width: 600px;
+    }
+
+    .app-card + .app-card {
+      margin-top: 1.5rem;
+    }
+
+    .app-card.image-right {
+      flex-direction: row-reverse;
     }
 
     .app-card img {
@@ -135,29 +147,10 @@
       line-height: 1.6;
     }
 
-    .store-links {
-      display: flex;
-      gap: 0.75rem;
+    .app-card .app-info .coming-soon {
       margin-top: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    .store-link {
-      display: inline-block;
-      padding: 0.45rem 1rem;
-      border: 1.5px solid #1a1a1a;
-      border-radius: 3px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: #1a1a1a;
-      text-decoration: none;
-      transition: background 0.15s, color 0.15s;
-    }
-
-    .store-link:hover {
-      background: #1a1a1a;
-      color: #fff;
+      font-size: 0.85rem;
+      color: #888;
     }
 
     /* --- Footer --- */
@@ -211,7 +204,8 @@
     }
 
     @media (max-width: 520px) {
-      .app-card {
+      .app-card,
+      .app-card.image-right {
         flex-direction: column;
         gap: 1.25rem;
       }
@@ -249,10 +243,36 @@
       <div class="app-info">
         <h2>WordDown</h2>
         <p>The challenging daily word puzzle that sees you pare down a word as far as you can.</p>
-        <div class="store-links">
-          <a class="store-link" href="#">App Store</a>
-          <a class="store-link" href="#">Google Play</a>
-        </div>
+        <p class="coming-soon">Coming soon for Android and iOS</p>
+      </div>
+    </div>
+
+    <div class="app-card image-right">
+      <img src="ourplace.png" alt="Our Place app icon" />
+      <div class="app-info">
+        <h2>Our Place</h2>
+        <p>Turn your mobile device's home screen into a shared place, whether it be a fridge, a cork board, or whatever! Make magnet words, post pictures and notes, and have fun!</p>
+        <p class="coming-soon">Coming soon as a launcher to Android and an app to iOS</p>
+      </div>
+    </div>
+
+    <div class="app-card">
+      <img src="intention.png" alt="Intention app icon" />
+      <div class="app-info">
+        <h2>Intention</h2>
+        <p>Set a daily intention and get helpful tips and hints throughout your day!</p>
+        <p class="coming-soon">Coming soon for Android and iOS</p>
+      </div>
+    </div>
+
+    <p class="apps-heading">Other Projects</p>
+
+    <div class="app-card">
+      <img src="ostfront.jpeg" alt="Ostfront game artwork" />
+      <div class="app-info">
+        <h2>Ostfront</h2>
+        <p>The table-top tank combat simulator with realistic armor, turret, and engine simulation mechanics! Outflank your opponents and conquer the field!</p>
+        <p class="coming-soon">Coming soon</p>
       </div>
     </div>
   </main>
