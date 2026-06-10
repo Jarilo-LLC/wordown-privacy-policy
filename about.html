@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jarilo LLC</title>
+  <title>About — Jarilo LLC</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -84,82 +84,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* --- Home --- */
-    .intro {
-      margin-bottom: 3rem;
-    }
-
-    .intro p {
-      font-size: 1.1rem;
-      max-width: 580px;
-      color: #333;
-    }
-
-    .apps-heading {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #888;
-      margin-bottom: 1.25rem;
-    }
-
-    .app-card {
-      border: 1.5px solid #1a1a1a;
-      border-radius: 4px;
-      padding: 2rem;
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      max-width: 600px;
-    }
-
-    .app-card img {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      flex-shrink: 0;
-      border-radius: 16px;
-      border: 1px solid #e0e0e0;
-    }
-
-    .app-card .app-info h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
-
-    .app-card .app-info p {
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.6;
-    }
-
-    .store-links {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    .store-link {
-      display: inline-block;
-      padding: 0.45rem 1rem;
-      border: 1.5px solid #1a1a1a;
-      border-radius: 3px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: #1a1a1a;
-      text-decoration: none;
-      transition: background 0.15s, color 0.15s;
-    }
-
-    .store-link:hover {
-      background: #1a1a1a;
-      color: #fff;
-    }
-
     /* --- Footer --- */
     footer {
       border-top: 1px solid #ddd;
@@ -209,11 +133,6 @@
     }
 
     @media (max-width: 520px) {
-      .app-card {
-        flex-direction: column;
-        gap: 1.25rem;
-      }
-
       header .top {
         flex-direction: column;
         gap: 0.25rem;
@@ -229,30 +148,14 @@
       <span class="tagline">Mobile apps for iOS &amp; Android</span>
     </div>
     <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <div class="intro">
-      <p>We build focused, thoughtfully designed mobile apps — available on Google Play and the Apple App Store.</p>
-    </div>
-
-    <p class="apps-heading">Our Apps</p>
-
-    <div class="app-card">
-      <img src="wordown.png" alt="WordDown app icon" />
-      <div class="app-info">
-        <h2>WordDown</h2>
-        <p>The challenging daily word puzzle that sees you pare down a word as far as you can.</p>
-        <div class="store-links">
-          <a class="store-link" href="#">App Store</a>
-          <a class="store-link" href="#">Google Play</a>
-        </div>
-      </div>
-    </div>
+    <h2 class="page-title">About</h2>
   </main>
 
   <footer>
