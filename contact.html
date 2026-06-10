@@ -161,16 +161,31 @@
 
     .form-status {
       max-width: 560px;
-      margin-top: 1.25rem;
+      margin-bottom: 1.5rem;
       padding: 0.85rem 1.1rem;
       border: 1.5px solid #1a1a1a;
       border-radius: 3px;
       font-size: 0.9rem;
+    }
+
+    /* Library shows these by adding data-fs-active; keep them hidden until then
+       (also prevents a flash of the success message before the script loads) */
+    .form-status:not([data-fs-active]) {
       display: none;
     }
 
-    .form-status.visible {
-      display: block;
+    .field-error {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .field-error:not([data-fs-active]) {
+      display: none;
+    }
+
+    .contact-form input[aria-invalid="true"],
+    .contact-form textarea[aria-invalid="true"] {
+      border-color: #1a1a1a;
     }
 
     /* --- Footer --- */
@@ -252,61 +267,43 @@
   <main>
     <h2 class="page-title">Contact</h2>
 
+    <div class="form-status" data-fs-success role="status">Thanks — your message has been sent. We’ll get back to you soon.</div>
+    <div class="form-status" data-fs-error role="alert"></div>
+
     <form class="contact-form" action="https://formspree.io/f/mkoavwre" method="POST">
       <div class="form-row">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required />
+          <input type="text" id="name" name="name" placeholder="Your name" data-fs-field required />
+          <span class="field-error" data-fs-error="name"></span>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          <input type="email" id="email" name="email" placeholder="you@example.com" data-fs-field required />
+          <span class="field-error" data-fs-error="email"></span>
         </div>
       </div>
       <div class="form-group">
         <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="What's this about?" required />
+        <input type="text" id="subject" name="subject" placeholder="What's this about?" data-fs-field required />
+        <span class="field-error" data-fs-error="subject"></span>
       </div>
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Your message…" required></textarea>
+        <textarea id="message" name="message" placeholder="Your message…" data-fs-field required></textarea>
+        <span class="field-error" data-fs-error="message"></span>
       </div>
       <!-- Honeypot: hidden from humans, catches spam bots -->
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-      <button type="submit" class="submit-btn">Send Message</button>
-      <p class="form-status" role="status" aria-live="polite"></p>
+      <button type="submit" class="submit-btn" data-fs-submit-btn>Send Message</button>
     </form>
   </main>
 
   <script>
-    const form = document.querySelector('.contact-form');
-    const status = document.querySelector('.form-status');
-    const button = form.querySelector('.submit-btn');
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      button.disabled = true;
-      button.textContent = 'Sending…';
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (response.ok) {
-          form.reset();
-          status.textContent = 'Thanks — your message has been sent. We’ll get back to you soon.';
-        } else {
-          status.textContent = 'Something went wrong sending your message. Please email contact@jarilo.io directly.';
-        }
-      } catch {
-        status.textContent = 'Something went wrong sending your message. Please email contact@jarilo.io directly.';
-      }
-      status.classList.add('visible');
-      button.disabled = false;
-      button.textContent = 'Send Message';
-    });
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '.contact-form', formId: 'mkoavwre' });
   </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
   <footer>
     <div class="inner">
